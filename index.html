@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>html-css-bootstrap-dashboard</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <main><!--Per rispettare lo spacing ed il responsive del modello della traccia il main è stilizzato nel file css-->
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container">
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-white" id="navbarTogglerDemo01">
+            <a class="nav-link active text-white flex-fill ps-5" aria-current="page" href="#">Bool factory</a><!-- class flex-fill per spingere gli altri elementi <li> alla fine del contenitore -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-3">
+            <li class="nav-item">
+              <a class="nav-link text-secondary" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled text-secondary" href="#">Servizi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled text-secondary" href="#">Contatti</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-1 p-0 m-0">
+        <!--spazio vuoto per costruire lo spacing secondo il modello della traccia-->
+      </div>
+      <div class="col-lg-7 col-xs-7 pt-4">
+        
+        <div class="nav nav-pills d-flex justify-content-between">
+          <div class="nav-item">
+            <h3>Richiesta Preventivo</h3>
+            <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
+          </div>         
+        </div>
+
+        <form>
+          <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="nome" aria-describedby="emailHelp">
+              <span class="text-danger" id="errorSpanNome"></span>
+          </div>
+          <div class="mb-3">
+              <label for="cognome" class="form-label">Cognome</label>
+              <input type="email" class="form-control" id="cognome" aria-describedby="emailHelp">
+              <span class="text-danger" id="errorSpanCognome"></span>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <span class="text-danger" id="errorSpanEmail"></span>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password">
+            <span class="text-danger" id="errorSpanPsw"></span>
+          </div>
+          <label for="floatingSelect">Tipo di lavoro</label>
+          <div class="form-floating mb-3">         
+            <select class="form-select" id="selectLavoro" aria-label="Floating label select example">
+              <option value="" selected>Seleziona il tipo di lavoro</option>    
+              <!---Options commentate perchè create nel file js come da bonus-->
+              <!--<option value="sviluppo backend">Sviluppo backend</option>
+              <option value="sviluppo frontend">Sviluppo frontend</option>
+              <option value="analisi progettuale">Analisi progettuale</option>-->
+            </select>  
+            <span class="text-danger" id="errorSpanSelect"></span>       
+          </div>
+          <label for="floatingTextarea">Comments</label>
+          <div class="form-floating mb-3">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="codiceProm" class="form-label">Codice promozionale</label>
+            <input type="text" class="form-control" id="codiceProm" aria-describedby="emailHelp">
+            <span class="text-danger" id="errorSpanCodice"></span>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="ckbx">
+            <label class="form-check-label" for="ckbx">Accetta la Privacy Policy</label>
+            <span class="text-danger" id="errorSpanCondition"></span>
+          </div>
+          <div class="container text-center mt-4 mb-5">
+            <div class="row">
+              <div class="col">
+               <button type="submit" id="btnCalcola" class="btn btn-primary">Calcola preventivo</button>
+               <button id="btnSpinner" class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+               </button>
+              </div>
+
+              <!---->
+
+              <div class="col" id="prezzoFinale">
+                <div class="container text-center displayDati">               
+                <div class="row">
+                    <div id="nomeUtente" class="col"></div>
+                </div>               
+                <div class="row">
+                  <div id="oreDiLavoro" class="col"></div>                                                      
+                </div>
+                <div class="row">                                           
+                  <div id="tipoLavoro" class="col"></div>           
+                </div>
+                <div class="row">                 
+                  <div id="sconto" class="col"></div>                                                       
+                </div>      
+              </div>
+                <h4>Prezzo finale</h4>
+                <p>...</p>
+              </div>             
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-lg-3 pt-4">
+        <!------Qui va la card------->
+        <div class="card" style="width: 18rem;"><!--preciso che lo style in linea è di Bootstrap-->
+          <img src="https://placehold.co/300x200"  class="card-img-top" alt="..."><!--immagine presa dal sito delle images placeholder-->
+          <div class="card-body">
+            <h5 class="card-title">I nostri contatti</h5>
+            <p class="card-text">Se hai bisogno di aiuto puoi contattarci:</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">help@boolfactory.test</li>
+            <li class="list-group-item">+1122334455</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Help desk</a>
+          </div>
+        </div>
+        <!-----fine card------->
+      </div>
+      <div class="col-1 p-0 m-0">
+       <!--spazio vuoto per costruire lo spacing secondo il modello della traccia-->
+      </div>
+    </div>
+  </div>
+
+  <footer class="d-flex justify-content-center align-items-center py-4 border-top bg-dark">
+    <p class="col-md-4 mb-0 text-white">&copy; 2024 - Tutti i diritti riservati</p>
+  </footer>
+
+</main>
+<!--Import il mio file js-->
+<script src="/fileJs/lib.js"></script>
+</body>
+</html>
