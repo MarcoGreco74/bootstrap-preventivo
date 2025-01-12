@@ -38,6 +38,7 @@
       <div class="col-1 p-0 m-0">
         <!--spazio vuoto per costruire lo spacing secondo il modello della traccia-->
       </div>
+      <!-----Corpo centrale----->
       <div class="col-lg-7 col-xs-7 pt-4">
         
         <div class="nav nav-pills d-flex justify-content-between">
@@ -93,18 +94,19 @@
             <label class="form-check-label" for="ckbx">Accetta la Privacy Policy</label>
             <span class="text-danger" id="errorSpanCondition"></span>
           </div>
+          <!----Area submit e dati finali------------->
           <div class="container text-center mt-4 mb-5">
             <div class="row">
-              <div class="col">
+              <!---Area button submit--------->
+              <div class="col">               
                <button type="submit" id="btnCalcola" class="btn btn-primary">Calcola preventivo</button>
+               <!---Button loading che viene visualizzato in una setTimeOut function di 2000 ms al click e al posto di btnCalcola per dare l'idea dell'elaborazione dei dati--->
                <button id="btnSpinner" class="btn btn-primary" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
                 <span role="status">Loading...</span>
                </button>
               </div>
-
-              <!---->
-
+              <!-----Visualizzazione dei dati finali----->
               <div class="col" id="prezzoFinale">
                 <div class="container text-center displayDati">               
                 <div class="row">
@@ -122,11 +124,12 @@
               </div>
                 <h4>Prezzo finale</h4>
                 <p>...</p>
-              </div>             
+              </div>   
+              <!---------------------------------------->          
             </div>
           </div>
+          <!--fine area submit e dati finali------->
         </form>
-
       </div>
       <div class="col-lg-3 pt-4">
         <!------Qui va la card------->
@@ -146,8 +149,9 @@
         </div>
         <!-----fine card------->
       </div>
+      <!------Fine corpo centrale------>
       <div class="col-1 p-0 m-0">
-       <!--spazio vuoto per costruire lo spacing secondo il modello della traccia-->
+       <!--spazio laterale dx vuoto per costruire lo spacing secondo il modello della traccia-->
       </div>
     </div>
   </div>
@@ -157,7 +161,7 @@
   </footer>
 
 </main>
-<!--Import il mio file js-->
+<!--Importo il mio file js-->
 <script src="/fileJs/lib.js"></script>
 </body>
 </html>

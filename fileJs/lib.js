@@ -17,7 +17,7 @@ let objLavoro = {
 };
 let select = document.getElementById("selectLavoro");
 for(let x in objLavoro) {
-    select.options[select.options.length] = new Option(objLavoro[x], x); // dove x sono le proprietà lavoro1, ecc...
+    select.options[select.options.length] = new Option(objLavoro[x], x); // dove x sono le proprietà sviluppo backend, ecc...
 }
 //////////////////////////////////////////
 function convalidaNomeCognome(str){
